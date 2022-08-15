@@ -11,7 +11,7 @@ const Product = () => {
             .then(result => {
                 setProduct(result)
             })
-    }, [])
+    }, [productID])
 
     return (
         <>
