@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
 import Product from './components/Product';
+import CreateProduct from './components/CreateProduct';
 import './App.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/login" element={<Login />}/>
                 <Route path="/register" element={<Register />} />
                 <Route path="/products/:productID" element={<Product />} />
+                <Route path="/createproduct" element={<CreateProduct />} />
             </Routes>
         </div>
     );

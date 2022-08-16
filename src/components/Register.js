@@ -15,7 +15,7 @@ const Register = () => {
             <input type="password" id="register-password" name="password" />
             <label htmlFor="con-pass">Confirm Password:</label>
             <input type="password" id="confirm-password" name="confirm-password" />
-            <input type="submit" className="btn submit" defaultValue="Register" />
+            <input type="submit" className="btn submit" value="Register" />
             <p className="field">
                 <span>
                     If you already have an account, click <Link to="/login">here</Link>.

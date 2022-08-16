@@ -13,7 +13,7 @@ const Login = () => {
             />
             <label htmlFor="login-pass">Password:</label>
             <input type="password" id="login-password" name="password" />
-            <input type="submit" className="btn submit" defaultValue="Login" />
+            <input type="submit" className="btn submit" value="Login" />
             <p className="field">
                 <span>
                     If you do not have an account, click <Link to="/register">here</Link>.
