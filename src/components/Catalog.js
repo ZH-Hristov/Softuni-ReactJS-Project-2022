@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-const Catalog = () => {
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        fetch("http://localhost:3030/data/products")
-            .then(res => res.json())
-            .then(result => {
-                setProducts(result)
-            })
-    }, [])
-
+const Catalog = ({products}) => {
     return (
         <>
         <h2>Catalog</h2>
 
         <div>
+            {products.length > 0 ?
             <ul>
                 {products.map(x => <li key={x._id} ><Link to={`/products/${x._id}`}>{x.name}</Link></li>)}
             </ul>
+            : <p>There are no clothing articles for sale at the moment.</p>
+            }
         </div>
         </>
     )
