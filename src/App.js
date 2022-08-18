@@ -15,6 +15,7 @@ import Register from './components/Register';
 import NotFound from './components/NotFound';
 import Product from './components/Product';
 import CreateProduct from './components/CreateProduct';
+import EditProduct from './components/EditProduct';
 import './App.css';
 
 function App() {
@@ -40,6 +41,10 @@ function App() {
         navigate('/')
     }
 
+    const editProductHandler = (productID, productData) => {
+        setProducts(state => state.map(x => x._id === productID ? productData : x))
+    }
+
     useEffect(() => {
         productService.getAll()
             .then(result => {
@@ -52,7 +57,7 @@ function App() {
             <AuthContext.Provider value={{user: auth, userLogin, userLogout}}>
             <Navigation />
 
-            <ProductContext.Provider value={{products, createProductHandler}}>
+            <ProductContext.Provider value={{products, createProductHandler, editProductHandler}}>
             <Routes>
                 <Route path="*" element={<NotFound />} />
                 <Route path='/' element={<Catalog products={products} />} />
@@ -61,6 +66,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/products/:productID" element={<Product />} />
                 <Route path="/createproduct" element={<CreateProduct />} />
+                <Route path="/products/:productID/edit" element={<EditProduct />} />
             </Routes>
             </ProductContext.Provider>
             </AuthContext.Provider>

@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import * as productService from '../services/productService'
 
 const Product = () => {
     const [ product, setProduct ] = useState({})
     const { productID } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:3030/data/products/${productID}`)
-            .then(res => res.json())
+        productService.getOne( productID )
             .then(result => {
                 setProduct(result)
             })
@@ -22,6 +24,7 @@ const Product = () => {
                 <li>Size: {product['product-size']}</li>
                 <li>Price: {product['product-price']}</li>
             </ul>
+            <Link to={`/products/${productID}/edit`}>Edit listing</Link>
         </>
     )
 }
