@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from "react"
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 import { AuthContext } from './contexts/authContext';
 
@@ -16,7 +17,7 @@ import './App.css';
 function App() {
 
     const [products, setProducts] = useState([])
-    const [auth, setAuth] = useState({})
+    const [auth, setAuth] = useLocalStorage('auth', {})
 
     const userLogin = (authData) => {
         setAuth(authData)
