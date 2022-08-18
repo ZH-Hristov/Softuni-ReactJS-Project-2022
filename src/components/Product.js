@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import { ProductContext } from "../contexts/productContext";
+import { AuthContext } from "../contexts/authContext";
 
 import * as productService from '../services/productService'
 
@@ -11,6 +12,7 @@ const Product = () => {
     const [product, setProduct] = useState({})
     const { productID } = useParams();
     const { deleteProductHandler } = useContext(ProductContext)
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -41,8 +43,14 @@ const Product = () => {
                 <li>Size: {product['product-size']}</li>
                 <li>Price: {product['product-price']}</li>
             </ul>
-            <Link to={`/products/${productID}/edit`}>Edit listing</Link>
-            <button onClick={onDelete}>Delete listing</button>
+            {user._id === product['_ownerId']
+                &&
+                <>
+                    <Link to={`/products/${productID}/edit`}>Edit listing</Link>
+                    <button onClick={onDelete}>Delete listing</button>
+                </>
+            }
+
         </>
     )
 }
