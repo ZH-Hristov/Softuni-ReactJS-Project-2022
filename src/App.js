@@ -1,8 +1,7 @@
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react"
-import { useLocalStorage } from './hooks/useLocalStorage';
 
-import { AuthContext } from './contexts/authContext';
+import { AuthProvider } from './contexts/authContext';
 import { ProductContext } from './contexts/productContext';
 
 import * as productService from './services/productService'
@@ -21,16 +20,7 @@ import './App.css';
 function App() {
 
     const [products, setProducts] = useState([])
-    const [auth, setAuth] = useLocalStorage('auth', {})
     const navigate = useNavigate()
-
-    const userLogin = (authData) => {
-        setAuth(authData)
-    }
-
-    const userLogout = () => {
-        setAuth({})
-    }
 
     const createProductHandler = (productData) => {
         setProducts(state => [
@@ -54,7 +44,7 @@ function App() {
 
     return (
         <div className="App">
-            <AuthContext.Provider value={{user: auth, userLogin, userLogout}}>
+            <AuthProvider>
             <Navigation />
 
             <ProductContext.Provider value={{products, createProductHandler, editProductHandler}}>
@@ -69,7 +59,7 @@ function App() {
                 <Route path="/products/:productID/edit" element={<EditProduct />} />
             </Routes>
             </ProductContext.Provider>
-            </AuthContext.Provider>
+            </AuthProvider>
         </div>
     );
 }
