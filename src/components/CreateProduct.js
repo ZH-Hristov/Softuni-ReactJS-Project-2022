@@ -1,11 +1,19 @@
-const CreateProduct = () => {
+import { useContext } from 'react'
 
+import * as productService from '../services/productService'
+import { ProductContext } from '../contexts/productContext'
+
+const CreateProduct = () => {
+    const { createProductHandler } = useContext(ProductContext)
     const onSubmit = (e) => {
         e.preventDefault()
 
-        const gameData = Object.fromEntries(new FormData(e.target))
+        const productData = Object.fromEntries(new FormData(e.target))
 
-        console.log(gameData)
+        productService.create(productData)
+            .then((result => {
+                createProductHandler(productData)
+            }))
     }
 
     return (

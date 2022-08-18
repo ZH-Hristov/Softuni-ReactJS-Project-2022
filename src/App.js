@@ -1,8 +1,11 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 import { AuthContext } from './contexts/authContext';
+import { ProductContext } from './contexts/productContext';
+
+import * as productService from './services/productService'
 
 import Navigation from './components/Navigation';
 import Catalog from './components/Catalog';
@@ -18,6 +21,7 @@ function App() {
 
     const [products, setProducts] = useState([])
     const [auth, setAuth] = useLocalStorage('auth', {})
+    const navigate = useNavigate()
 
     const userLogin = (authData) => {
         setAuth(authData)
@@ -27,9 +31,17 @@ function App() {
         setAuth({})
     }
 
+    const createProductHandler = (productData) => {
+        setProducts(state => [
+            ...state, 
+            productData
+        ])
+
+        navigate('/')
+    }
+
     useEffect(() => {
-        fetch("http://localhost:3030/data/products")
-            .then(res => res.json())
+        productService.getAll()
             .then(result => {
                 setProducts(result)
             })
@@ -40,6 +52,7 @@ function App() {
             <AuthContext.Provider value={{user: auth, userLogin, userLogout}}>
             <Navigation />
 
+            <ProductContext.Provider value={{products, createProductHandler}}>
             <Routes>
                 <Route path="*" element={<NotFound />} />
                 <Route path='/' element={<Catalog products={products} />} />
@@ -49,6 +62,7 @@ function App() {
                 <Route path="/products/:productID" element={<Product />} />
                 <Route path="/createproduct" element={<CreateProduct />} />
             </Routes>
+            </ProductContext.Provider>
             </AuthContext.Provider>
         </div>
     );

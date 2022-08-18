@@ -15,13 +15,12 @@ const Product = () => {
 
     return (
         <>
-            <h3>Product: {product.name}</h3>
+            <h3>Product: {product.title}</h3>
 
             <h4>Product Details:</h4>
             <ul>
-                <li>Color: {product.color}</li>
-                <li>Size: {product.size}</li>
-                <li>Price: {product.price}</li>
+                <li>Size: {product['product-size']}</li>
+                <li>Price: {product['product-price']}</li>
             </ul>
         </>
     )

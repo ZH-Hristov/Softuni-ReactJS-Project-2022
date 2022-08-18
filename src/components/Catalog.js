@@ -8,7 +8,7 @@ const Catalog = ({products}) => {
         <div>
             {products.length > 0 ?
             <ul>
-                {products.map(x => <li key={x._id} ><Link to={`/products/${x._id}`}>{x.name}</Link></li>)}
+                {products.map(x => <li key={x._id} ><Link to={`/products/${x._id}`}>{x.title}</Link></li>)}
             </ul>
             : <p>There are no clothing articles for sale at the moment.</p>
             }
