@@ -15,7 +15,7 @@ const EditProduct = () => {
             .then(productData => {
                 setCurrentProduct(productData)
             })
-    }, [])
+    }, [productID])
 
     const onSubmit = (e) => {
         e.preventDefault()
