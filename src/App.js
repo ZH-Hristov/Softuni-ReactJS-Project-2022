@@ -15,6 +15,7 @@ import NotFound from './components/NotFound';
 import Product from './components/Product';
 import CreateProduct from './components/CreateProduct';
 import EditProduct from './components/EditProduct';
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
 function App() {
@@ -60,11 +61,14 @@ function App() {
                         <Route path="*" element={<NotFound />} />
                         <Route path='/' element={<Catalog products={products} />} />
                         <Route path="/login" element={<Login />} />
-                        <Route path="/logout" element={<Logout />}></Route>
                         <Route path="/register" element={<Register />} />
                         <Route path="/products/:productID" element={<Product />} />
-                        <Route path="/createproduct" element={<CreateProduct />} />
-                        <Route path="/products/:productID/edit" element={<EditProduct />} />
+                        <Route element={<PrivateRoute />}>
+                            <Route path="/createproduct" element={<CreateProduct />} />
+                            <Route path="/products/:productID/edit" element={<EditProduct />} />
+                            <Route path="/logout" element={<Logout />}></Route>
+                        </Route>
+                        
                     </Routes>
                 </ProductContext.Provider>
             </AuthProvider>
