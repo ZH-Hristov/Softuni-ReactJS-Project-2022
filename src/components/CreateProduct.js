@@ -1,7 +1,16 @@
 const CreateProduct = () => {
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        const gameData = Object.fromEntries(new FormData(e.target))
+
+        console.log(gameData)
+    }
+
     return (
         <div className="create-container">
-            <form id="create">
+            <form id="create" onSubmit={onSubmit}>
                 <h1>Create Product Listing</h1>
                 <label htmlFor="product-title">Product name:</label>
                 <input
@@ -24,6 +33,7 @@ const CreateProduct = () => {
                     id="product-price"
                     name="product-price"
                     min={1}
+                    step={0.01}
                     placeholder={4.99}
                 />
                 <label htmlFor="product-image-url">Product Image Link:</label>
