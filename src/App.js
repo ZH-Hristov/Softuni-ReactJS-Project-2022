@@ -6,6 +6,7 @@ import { AuthContext } from './contexts/authContext';
 import Navigation from './components/Navigation';
 import Catalog from './components/Catalog';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
 import Product from './components/Product';
@@ -21,6 +22,10 @@ function App() {
         setAuth(authData)
     }
 
+    const userLogout = () => {
+        setAuth({})
+    }
+
     useEffect(() => {
         fetch("http://localhost:3030/data/products")
             .then(res => res.json())
@@ -31,13 +36,14 @@ function App() {
 
     return (
         <div className="App">
-            <AuthContext.Provider value={{user: auth, userLogin}}>
+            <AuthContext.Provider value={{user: auth, userLogin, userLogout}}>
             <Navigation />
 
             <Routes>
                 <Route path="*" element={<NotFound />} />
                 <Route path='/' element={<Catalog products={products} />} />
                 <Route path="/login" element={<Login />}/>
+                <Route path="/logout" element={<Logout />}></Route>
                 <Route path="/register" element={<Register />} />
                 <Route path="/products/:productID" element={<Product />} />
                 <Route path="/createproduct" element={<CreateProduct />} />
