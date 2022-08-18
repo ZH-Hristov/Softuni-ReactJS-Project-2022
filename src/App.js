@@ -31,7 +31,7 @@ function App() {
 
     return (
         <div className="App">
-            <AuthContext.Provider value={{auth, userLogin}}>
+            <AuthContext.Provider value={{user: auth, userLogin}}>
             <Navigation />
 
             <Routes>

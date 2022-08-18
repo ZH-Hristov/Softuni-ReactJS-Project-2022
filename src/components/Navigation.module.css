@@ -1,4 +1,22 @@
 .active-link {
-    background-color: pink;
+    background-color: white;
     text-decoration: none;
+}
+
+.nav-bar-list {
+    display: block;
+    font-size: 0;
+    padding: 0;
+    width: 100%;
+    border-bottom: 2px solid black;
+    background-color: yellowgreen;
+}
+
+li {
+    padding: 8px;
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+    border-bottom: 1px solid #afafaf;
+    font-size: 16pt;
 }
