@@ -12,7 +12,7 @@ const CreateProduct = () => {
 
         productService.create(productData)
             .then((result => {
-                createProductHandler(productData)
+                createProductHandler(result)
             }))
     }
 

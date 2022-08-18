@@ -24,7 +24,7 @@ function App() {
 
     const createProductHandler = (productData) => {
         setProducts(state => [
-            ...state, 
+            ...state,
             productData
         ])
 
@@ -33,6 +33,14 @@ function App() {
 
     const editProductHandler = (productID, productData) => {
         setProducts(state => state.map(x => x._id === productID ? productData : x))
+    }
+
+    const deleteProductHandler = (productID) => {
+        setProducts(state =>
+            state.filter(x => {
+                return x._id !== productID
+            })
+        )
     }
 
     useEffect(() => {
@@ -45,20 +53,20 @@ function App() {
     return (
         <div className="App">
             <AuthProvider>
-            <Navigation />
+                <Navigation />
 
-            <ProductContext.Provider value={{products, createProductHandler, editProductHandler}}>
-            <Routes>
-                <Route path="*" element={<NotFound />} />
-                <Route path='/' element={<Catalog products={products} />} />
-                <Route path="/login" element={<Login />}/>
-                <Route path="/logout" element={<Logout />}></Route>
-                <Route path="/register" element={<Register />} />
-                <Route path="/products/:productID" element={<Product />} />
-                <Route path="/createproduct" element={<CreateProduct />} />
-                <Route path="/products/:productID/edit" element={<EditProduct />} />
-            </Routes>
-            </ProductContext.Provider>
+                <ProductContext.Provider value={{ products, createProductHandler, editProductHandler, deleteProductHandler }}>
+                    <Routes>
+                        <Route path="*" element={<NotFound />} />
+                        <Route path='/' element={<Catalog products={products} />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/logout" element={<Logout />}></Route>
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/products/:productID" element={<Product />} />
+                        <Route path="/createproduct" element={<CreateProduct />} />
+                        <Route path="/products/:productID/edit" element={<EditProduct />} />
+                    </Routes>
+                </ProductContext.Provider>
             </AuthProvider>
         </div>
     );

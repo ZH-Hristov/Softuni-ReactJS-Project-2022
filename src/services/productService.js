@@ -9,3 +9,5 @@ export const getOne = (productID) => request.get(`${baseUrl}/${productID}`)
 export const create = (productData) => request.post(baseUrl, productData)
 
 export const edit = (productID, productData) => request.put(`${baseUrl}/${productID}`, productData)
+
+export const remove = (productID) => request.del(`${baseUrl}/${productID}`)
