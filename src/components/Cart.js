@@ -6,7 +6,7 @@ import styles from './Cart.module.css'
 
 const Cart = () => {
 
-    const { cartItems } = useContext(CartContext)
+    const { cartItems, clearCart } = useContext(CartContext)
 
     return (
         <>
@@ -23,6 +23,7 @@ const Cart = () => {
             </ul>
             : <p>You have no products in your cart!</p>
             }
+            <button onClick={clearCart}>Clear cart</button>
         </div>
         </>
     )
