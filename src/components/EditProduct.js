@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Navigate } from "react-router-dom"
 
 import * as productService from '../services/productService'
 import { ProductContext } from "../contexts/productContext"
+import { AuthContext } from "../contexts/authContext"
 
 const EditProduct = () => {
     const [currentProduct, setCurrentProduct] = useState({})
     const { editProductHandler } = useContext(ProductContext)
+    const { user } = useContext(AuthContext)
     const { productID } = useParams()
     const navigate = useNavigate()
 
@@ -31,6 +33,9 @@ const EditProduct = () => {
 
     return (
         <div className="edit-container">
+
+            {currentProduct._ownerId !== user._id && <Navigate to='/' />}
+
             <form id="edit" onSubmit={onSubmit}>
                 <h1>Edit Product Listing</h1>
                 <label htmlFor="product-title">Product name:</label>

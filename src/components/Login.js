@@ -18,7 +18,7 @@ const Login = () => {
     
         login(email, password)
             .then(authData => {
-                if (authData.code === 200) {
+                if (!authData.code) {
                     userLogin(authData)
                     navigate('/')
                 } else {

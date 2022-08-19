@@ -43,7 +43,7 @@ const Product = () => {
                 <li>Size: {product['product-size']}</li>
                 <li>Price: {product['product-price']}</li>
             </ul>
-            {user._id === product['_ownerId']
+            {user._id === product._ownerId
                 &&
                 <>
                     <Link to={`/products/${productID}/edit`}>Edit listing</Link>
