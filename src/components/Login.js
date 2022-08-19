@@ -18,11 +18,12 @@ const Login = () => {
     
         login(email, password)
             .then(authData => {
-                userLogin(authData)
-                navigate('/')
-            })
-            .catch(() => {
-                navigate('/*')
+                if (authData.code === 200) {
+                    userLogin(authData)
+                    navigate('/')
+                } else {
+                    window.alert(authData.message)
+                }
             })
     }
     
