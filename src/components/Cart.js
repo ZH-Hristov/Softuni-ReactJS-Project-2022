@@ -8,8 +8,6 @@ const Cart = () => {
 
     const { cartItems } = useContext(CartContext)
 
-    console.log(Object.keys(cartItems))
-
     return (
         <>
         <h2>Cart</h2>
