@@ -48,7 +48,7 @@ const Catalog = () => {
                 {products.map(x => 
                 <li className={styles.catalogli} key={x._id} >
                     <Link to={`/products/${x._id}`}><img className={styles.catalogimg} alt={x.title} src={x['image-url']} /></Link>
-                    <Link className={styles.catalogdetail} to={`/products/${x._id}`}>{x.title}</Link>
+                    <Link className={`${styles.catalogdetail} ${styles.catalogtitle}`} to={`/products/${x._id}`}>{x.title}</Link>
                     <p className={styles.catalogdetail} >{x['product-price']}$</p>
                     <p className={styles.catalogdetail}>Size: {x['product-size']}</p>
                 </li>)}

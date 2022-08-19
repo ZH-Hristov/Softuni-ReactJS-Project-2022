@@ -2,5 +2,27 @@
     width: 128x;
     height: 128px;
     object-fit: cover;
+    background-color: wheat;
     outline: black solid 2px;
+    box-shadow: 0px 2px 16px black;
+    transition: 0.2s;
+}
+
+.cartul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: antiquewhite;
+    margin: auto;
+    border-radius: 4px;
+    width: 20%;
+    justify-items: center;
+}
+
+.cartli {
+    display: flex;
+    flex-direction: column;
+    background-color: #2f1793;
+    border-radius: 4px;
+    margin: 8px;
 }

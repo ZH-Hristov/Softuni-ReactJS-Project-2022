@@ -14,9 +14,9 @@ const Cart = () => {
 
         <div>
             {Object.keys(cartItems).length > 0 ?
-            <ul>
+            <ul className={styles.cartul}>
                 {Object.values(cartItems).map(x => 
-                <li key={x._id} >
+                <li className={styles.cartli} key={x._id} >
                     <img className={styles.catalogimg} alt={x.title} src={x['image-url']} />
                     <Link to={`/products/${x._id}`}>{x.title}</Link>
                 </li>)}
