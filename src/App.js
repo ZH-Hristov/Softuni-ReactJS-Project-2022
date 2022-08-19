@@ -60,9 +60,10 @@ function App() {
     return (
         <div className="App">
             <AuthProvider>
-                <Navigation />
 
                 <CartProvider>
+                    <Navigation />
+
                     <ProductContext.Provider value={{ products, createProductHandler, editProductHandler, deleteProductHandler, searchProductHandler }}>
                         <Routes>
                             <Route path="*" element={<NotFound />} />

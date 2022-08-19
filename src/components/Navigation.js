@@ -3,9 +3,11 @@ import { useContext } from "react"
 import styles from './Navigation.module.css'
 
 import { AuthContext } from "../contexts/authContext"
+import { CartContext } from "../contexts/cartContext"
 
 const Navigation = () => {
     const { user } = useContext(AuthContext)
+    const { cartItems } = useContext(CartContext)
 
     const setNavStyle = ({ isActive }) => {
         return isActive
@@ -21,7 +23,7 @@ const Navigation = () => {
                 {user.accessToken
                     ? <>
                     <li><NavLink className={setNavStyle} to="/createproduct">Add Listing</NavLink></li>
-                    <li><NavLink className={setNavStyle} to="/cart">My Cart</NavLink></li>
+                    <li><NavLink className={setNavStyle} to="/cart">My Cart {Object.keys(cartItems).length > 0 && `(${Object.keys(cartItems).length})`}</NavLink></li>
                     <li><NavLink className={setNavStyle} to="/logout">Logout</NavLink></li>
                     </>
                     : <li><NavLink className={setNavStyle} to="/login">Login</NavLink></li>
