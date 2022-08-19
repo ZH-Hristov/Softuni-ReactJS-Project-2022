@@ -1,6 +1,6 @@
-.catalogimg {
-    width: 256x;
-    height: 256px;
+.bigimg {
+    width: 512px;
+    height: 512px;
     object-fit: cover;
     outline: black solid 2px;
 }

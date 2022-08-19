@@ -8,6 +8,8 @@ import { AuthContext } from "../contexts/authContext";
 
 import * as productService from '../services/productService'
 
+import styles from './Product.module.css'
+
 const Product = () => {
     const [product, setProduct] = useState({})
     const { productID } = useParams();
@@ -39,6 +41,7 @@ const Product = () => {
             <h3>Product: {product.title}</h3>
 
             <h4>Product Details:</h4>
+            <img className={styles.bigimg} src={product['image-url']} alt={product.title} />
             <ul>
                 <li>Size: {product['product-size']}</li>
                 <li>Price: {product['product-price']}</li>
