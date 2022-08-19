@@ -9,7 +9,7 @@
 }
 
 .catalogimg:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .catalogul {
@@ -17,6 +17,7 @@
     flex-wrap: wrap;
     background-color: antiquewhite;
     margin: 16px;
+    border-radius: 4px;
 }
 
 .catalogli {
