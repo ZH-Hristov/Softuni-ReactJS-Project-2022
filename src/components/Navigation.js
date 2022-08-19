@@ -11,8 +11,8 @@ const Navigation = () => {
 
     const setNavStyle = ({ isActive }) => {
         return isActive
-            ? styles['active-link']
-            : undefined
+            ? `${styles['active-link']} ${styles.link}`
+            : styles.link
     }
 
     return (

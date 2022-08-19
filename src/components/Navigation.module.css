@@ -1,6 +1,13 @@
-.active-link {
-    background-color: white;
+.link {
+    padding: 4px;
+    text-shadow: 0px 1px 2px black;
     text-decoration: none;
+}
+
+.active-link {
+    background-color: wheat;
+    text-decoration: none;
+    border-radius: 16px;
 }
 
 .nav-bar-list {
