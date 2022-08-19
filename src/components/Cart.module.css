@@ -1,0 +1,6 @@
+.catalogimg {
+    width: 128x;
+    height: 128px;
+    object-fit: cover;
+    outline: black solid 2px;
+}

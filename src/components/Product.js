@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 import { ProductContext } from "../contexts/productContext";
 import { AuthContext } from "../contexts/authContext";
+import { CartContext } from "../contexts/cartContext";
 
 import * as productService from '../services/productService'
 
@@ -15,6 +16,7 @@ const Product = () => {
     const { productID } = useParams();
     const { deleteProductHandler } = useContext(ProductContext)
     const { user } = useContext(AuthContext)
+    const { cartItems, addCartItem, removeCartItem } = useContext(CartContext)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -46,6 +48,12 @@ const Product = () => {
                 <li>Size: {product['product-size']}</li>
                 <li>Price: {product['product-price']}</li>
             </ul>
+            {cartItems[productID] ? 
+                <button onClick={() => removeCartItem(productID)}>Remove from cart</button>
+                : 
+                <button onClick={() => addCartItem(product) }>Add to cart</button>
+            }
+            
             {user._id === product._ownerId
                 &&
                 <>

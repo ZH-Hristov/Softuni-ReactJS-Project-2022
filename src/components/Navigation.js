@@ -21,6 +21,7 @@ const Navigation = () => {
                 {user.accessToken
                     ? <>
                     <li><NavLink className={setNavStyle} to="/createproduct">Add Listing</NavLink></li>
+                    <li><NavLink className={setNavStyle} to="/cart">My Cart</NavLink></li>
                     <li><NavLink className={setNavStyle} to="/logout">Logout</NavLink></li>
                     </>
                     : <li><NavLink className={setNavStyle} to="/login">Login</NavLink></li>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 import { AuthProvider } from './contexts/authContext';
 import { ProductContext } from './contexts/productContext';
+import { CartProvider } from './contexts/cartContext';
 
 import * as productService from './services/productService'
 
@@ -17,6 +18,7 @@ import CreateProduct from './components/CreateProduct';
 import EditProduct from './components/EditProduct';
 import PrivateRoute from './components/PrivateRoute';
 import './App.css';
+import Cart from './components/Cart';
 
 function App() {
 
@@ -60,21 +62,24 @@ function App() {
             <AuthProvider>
                 <Navigation />
 
-                <ProductContext.Provider value={{ products, createProductHandler, editProductHandler, deleteProductHandler, searchProductHandler }}>
-                    <Routes>
-                        <Route path="*" element={<NotFound />} />
-                        <Route path='/' element={<Catalog products={products} />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/products/:productID" element={<Product />} />
-                        <Route element={<PrivateRoute />}>
-                            <Route path="/createproduct" element={<CreateProduct />} />
-                            <Route path="/products/:productID/edit" element={<EditProduct />} />
-                            <Route path="/logout" element={<Logout />}></Route>
-                        </Route>
-                        
-                    </Routes>
-                </ProductContext.Provider>
+                <CartProvider>
+                    <ProductContext.Provider value={{ products, createProductHandler, editProductHandler, deleteProductHandler, searchProductHandler }}>
+                        <Routes>
+                            <Route path="*" element={<NotFound />} />
+                            <Route path='/' element={<Catalog products={products} />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                            <Route path="/products/:productID" element={<Product />} />
+                            <Route element={<PrivateRoute />}>
+                                <Route path="/createproduct" element={<CreateProduct />} />
+                                <Route path="/products/:productID/edit" element={<EditProduct />} />
+                                <Route path="/cart" element={<Cart />} />
+                                <Route path="/logout" element={<Logout />}></Route>
+                            </Route>
+
+                        </Routes>
+                    </ProductContext.Provider>
+                </CartProvider>
             </AuthProvider>
         </div>
     );
