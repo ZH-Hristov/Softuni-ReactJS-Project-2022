@@ -1,13 +1,17 @@
 .link {
     padding: 4px;
-    text-shadow: 0px 1px 2px black;
+    text-shadow: 0px 1px 16px black;
     text-decoration: none;
+    font-weight: 700;
+    color: wheat;
 }
 
 .active-link {
     background-color: wheat;
     text-decoration: none;
+    text-shadow: 0px 1px 0px black;
     border-radius: 16px;
+    color: #2f1793;
 }
 
 .nav-bar-list {
@@ -16,7 +20,7 @@
     padding: 0;
     width: 100%;
     border-bottom: 2px solid black;
-    background-color: yellowgreen;
+    background-color:#2f1793;
 }
 
 li {
@@ -24,6 +28,5 @@ li {
     position: relative;
     display: inline-block;
     list-style-type: none;
-    border-bottom: 1px solid #afafaf;
     font-size: 16pt;
 }
