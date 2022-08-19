@@ -8,6 +8,7 @@ import styles from './Catalog.module.css'
 const Catalog = () => {
 
     const [searchText, setSearchText] = useState('')
+    const [noProducts, setNoProducts] = useState('There are no clothing articles for sale at the moment.')
     const { products, searchProductHandler } = useContext(ProductContext)
 
     const onSubmit = (e) => {
@@ -16,6 +17,11 @@ const Catalog = () => {
         productService.getByName(searchText)
             .then(searchedProducts => {
                 searchProductHandler(searchedProducts)
+                if (searchText === '') {
+                    setNoProducts('There are no clothing articles for sale at the moment.')
+                } else {
+                    setNoProducts('There are no clothing items matching your search term.')
+                }
             })
     }
 
@@ -45,7 +51,7 @@ const Catalog = () => {
                     <Link to={`/products/${x._id}`}>{x.title}</Link>
                 </li>)}
             </ul>
-            : <p>There are no clothing articles for sale at the moment.</p>
+            : <p>{noProducts}</p>
             }
         </div>
         </>
