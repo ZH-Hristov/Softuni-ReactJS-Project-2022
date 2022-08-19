@@ -44,6 +44,10 @@ function App() {
         )
     }
 
+    const searchProductHandler = (searchedProducts) => {
+        setProducts(searchedProducts)
+    }
+
     useEffect(() => {
         productService.getAll()
             .then(result => {
@@ -56,7 +60,7 @@ function App() {
             <AuthProvider>
                 <Navigation />
 
-                <ProductContext.Provider value={{ products, createProductHandler, editProductHandler, deleteProductHandler }}>
+                <ProductContext.Provider value={{ products, createProductHandler, editProductHandler, deleteProductHandler, searchProductHandler }}>
                     <Routes>
                         <Route path="*" element={<NotFound />} />
                         <Route path='/' element={<Catalog products={products} />} />

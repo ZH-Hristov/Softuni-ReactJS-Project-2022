@@ -6,6 +6,8 @@ export const getAll = () => request.get(baseUrl)
 
 export const getOne = (productID) => request.get(`${baseUrl}/${productID}`)
 
+export const getByName = (queryString) => request.get( encodeURI(`${baseUrl}?where=title LIKE "${queryString}"`) )
+
 export const create = (productData) => request.post(baseUrl, productData)
 
 export const edit = (productID, productData) => request.put(`${baseUrl}/${productID}`, productData)
