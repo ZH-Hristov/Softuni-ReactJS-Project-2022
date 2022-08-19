@@ -32,7 +32,7 @@ const EditProduct = () => {
     }
 
     if (Object.keys(currentProduct).length > 0 && currentProduct._ownerId !== user._id) {
-        return (<Navigate to='/' />)
+        return (<Navigate to='/' replace />)
     }
 
     return (
