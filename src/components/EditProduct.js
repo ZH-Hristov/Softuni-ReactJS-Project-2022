@@ -31,11 +31,12 @@ const EditProduct = () => {
             }))
     }
 
+    if (Object.keys(currentProduct).length > 0 && currentProduct._ownerId !== user._id) {
+        return (<Navigate to='/' />)
+    }
+
     return (
         <div className="edit-container">
-
-            {currentProduct._ownerId !== user._id && <Navigate to='/' />}
-
             <form id="edit" onSubmit={onSubmit}>
                 <h1>Edit Product Listing</h1>
                 <label htmlFor="product-title">Product name:</label>
