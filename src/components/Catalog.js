@@ -31,12 +31,12 @@ const Catalog = () => {
 
     return (
         <>
-        <h2>Catalog</h2>
+        <h1>Catalog</h1>
 
-        <form  onSubmit={onSubmit} id="search">
-            <input onChange={onChange} name="searchtext" type="text"></input>
+        <form onSubmit={onSubmit} id="search">
+            <input className={styles.searchbar} onChange={onChange} name="searchtext" type="text"></input>
             <input
-                    className="btn submit"
+                    className={styles.searchbutton}
                     type="submit"
                     value="Search"
                 />
@@ -47,7 +47,7 @@ const Catalog = () => {
             <ul className={styles.catalogul}>
                 {products.map(x => 
                 <li className={styles.catalogli} key={x._id} >
-                    <img className={styles.catalogimg} alt={x.title} src={x['image-url']} />
+                    <Link to={`/products/${x._id}`}><img className={styles.catalogimg} alt={x.title} src={x['image-url']} /></Link>
                     <Link className={styles.catalogdetail} to={`/products/${x._id}`}>{x.title}</Link>
                     <p className={styles.catalogdetail} >{x['product-price']}$</p>
                     <p className={styles.catalogdetail}>Size: {x['product-size']}</p>

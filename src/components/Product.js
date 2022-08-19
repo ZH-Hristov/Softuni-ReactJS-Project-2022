@@ -40,7 +40,7 @@ const Product = () => {
 
     return (
         <>
-            <h3>Product: {product.title}</h3>
+            <h1>Product: {product.title}</h1>
 
             <h4>Product Details:</h4>
             <img className={styles.bigimg} src={product['image-url']} alt={product.title} />

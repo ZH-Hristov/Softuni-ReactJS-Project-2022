@@ -18,7 +18,7 @@ const Navigation = () => {
     return (
         <div className="nav-container">
             <ul className={styles["nav-bar-list"]}>
-                {user.email && <li>Hello! {user.email}</li>}
+                {user.email && <li className={styles.navspan}>Hello! {user.email}</li>}
                 <li><NavLink className={setNavStyle} to="/">Catalog</NavLink></li>
                 {user.accessToken
                     ? <>

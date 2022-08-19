@@ -10,7 +10,7 @@ const Cart = () => {
 
     return (
         <>
-        <h2>Cart</h2>
+        <h1>Cart</h1>
 
         <div>
             {Object.keys(cartItems).length > 0 ?
