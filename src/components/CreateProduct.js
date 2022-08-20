@@ -3,6 +3,8 @@ import { useContext } from 'react'
 import * as productService from '../services/productService'
 import { ProductContext } from '../contexts/productContext'
 
+import styles from './CreateProduct.module.css'
+
 const CreateProduct = () => {
     const { createProductHandler } = useContext(ProductContext)
     const onSubmit = (e) => {
@@ -17,7 +19,7 @@ const CreateProduct = () => {
     }
 
     return (
-        <div className="create-container">
+        <div className={styles.createcontainer}>
             <form id="create" onSubmit={onSubmit}>
                 <h1>Create Product Listing</h1>
                 <label htmlFor="product-title">Product name:</label>
