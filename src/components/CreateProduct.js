@@ -24,7 +24,7 @@ const CreateProduct = () => {
 
             <div className={styles.createcontainer}>
                 <form id="create" className={styles.createform} onSubmit={onSubmit}>
-                    <label className={styles.createlabel} htmlFor="product-title">Product name:</label>
+                    <label className={styles.createlabel} htmlFor="product-title">Product Name:</label>
                     <input
                         className={styles.createinput}
                         type="text"
@@ -59,10 +59,10 @@ const CreateProduct = () => {
                         placeholder="https://imgur.com/myImage.jpg"
                     />
                     <label className={styles.createlabel} htmlFor="product-additional-details">Additional Details:</label>
-                    <textarea className={styles.createinput} name="product-additional-details" id="product-additional-details" defaultValue="" />
+                    <textarea className={`${styles.createlabel} ${styles.createtextarea}`} name="product-additional-details" id="product-additional-details" defaultValue="" />
 
                     <input
-                        className="btn submit"
+                        className={styles.createsubmit}
                         type="submit"
                         value="Create"
                     />

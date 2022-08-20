@@ -16,6 +16,8 @@
     color: wheat;
     font-weight: 700;
     font-size: large;
+    margin: 10px;
+    text-shadow: 0 2px 0 black;
 }
 
 .createinput {
@@ -23,4 +25,33 @@
     background-color: white;
     border: none;
     border-radius: 4px;
+    font-weight: 700;
+}
+
+.createtextarea {
+    resize: none;
+    margin: auto;
+    color: black;
+    text-shadow: none;
+}
+
+.createsubmit {
+    background-color: transparent;
+    color: wheat;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: larger;
+    transition: 0.1s;
+    width: 50%;
+    text-shadow: 0 2px 0 black;
+}
+
+.createsubmit:hover {
+    background-color: wheat;
+    color: black;
+    text-shadow: none;
 }
