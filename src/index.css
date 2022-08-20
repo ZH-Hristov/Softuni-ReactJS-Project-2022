@@ -17,4 +17,6 @@ h1 {
   background-color: #2f1793;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+  text-shadow: 0 2px 0px black;
+  padding: 8px;
 }

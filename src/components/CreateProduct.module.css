@@ -1,6 +1,26 @@
 .createcontainer {
-    background-color: wheat;
     border-radius: 4px;
     width: 40%;
     margin: auto;
+}
+
+.createform {
+    display: flex;
+    flex-direction: column;
+    background-color: #2f1793;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.createlabel {
+    color: wheat;
+    font-weight: 700;
+    font-size: large;
+}
+
+.createinput {
+    padding: 8px;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
 }
