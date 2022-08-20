@@ -6,7 +6,7 @@ import styles from './Cart.module.css'
 
 const Cart = () => {
 
-    const { cartItems, clearCart } = useContext(CartContext)
+    const { cartItems, clearCart, cartPrice } = useContext(CartContext)
 
     return (
         <>
@@ -24,7 +24,7 @@ const Cart = () => {
                                 </li>)}
                         </ul>
                         <div className={styles.totalcontainer}>
-                            <p className={styles.cartdetail} >Total Price: 29.99$</p>
+                            <p className={styles.cartdetail} >Total Price: {cartPrice}$</p>
                             <button className={styles.totalbutton}>Checkout</button>
                             <button className={styles.totalbutton} onClick={clearCart}>Clear cart</button>
                         </div>
