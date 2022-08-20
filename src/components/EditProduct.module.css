@@ -1,0 +1,57 @@
+.editcontainer {
+    border-radius: 4px;
+    width: 40%;
+    margin: auto;
+}
+
+.editform {
+    display: flex;
+    flex-direction: column;
+    background-color: #2f1793;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.editlabel {
+    color: wheat;
+    font-weight: 700;
+    font-size: large;
+    margin: 10px;
+    text-shadow: 0 2px 0 black;
+}
+
+.editinput {
+    padding: 8px;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.edittextarea {
+    resize: none;
+    margin: auto;
+    color: black;
+    text-shadow: none;
+}
+
+.editsubmit {
+    background-color: transparent;
+    color: wheat;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: larger;
+    transition: 0.1s;
+    width: 50%;
+    text-shadow: 0 2px 0 black;
+}
+
+.editsubmit:hover {
+    background-color: wheat;
+    color: black;
+    text-shadow: none;
+}

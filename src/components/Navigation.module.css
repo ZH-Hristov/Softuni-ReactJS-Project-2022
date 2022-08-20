@@ -1,6 +1,6 @@
 .link {
     padding: 4px;
-    text-shadow: 0px 1px 0px black;
+    text-shadow: 0 2px 0 black;
     text-decoration: none;
     font-weight: 700;
     color: wheat;
@@ -8,12 +8,12 @@
 }
 
 .link:hover {
-    text-shadow: 0px 0px 8px wheat;
+    text-shadow: 0 0 8px wheat;
 }
 
 .navspan {
     color: wheat;
-    text-shadow: 0px 1px 0px black;
+    text-shadow: 0 2px 0 black;
     font-weight: 700;
 }
 
@@ -22,6 +22,7 @@
     text-decoration: none;
     border-radius: 16px;
     color: #2f1793;
+    text-shadow: none;
 }
 
 .nav-bar-list {

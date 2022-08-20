@@ -59,7 +59,7 @@ const CreateProduct = () => {
                         placeholder="https://imgur.com/myImage.jpg"
                     />
                     <label className={styles.createlabel} htmlFor="product-additional-details">Additional Details:</label>
-                    <textarea className={`${styles.createlabel} ${styles.createtextarea}`} name="product-additional-details" id="product-additional-details" defaultValue="" />
+                    <textarea className={`${styles.createinput} ${styles.createtextarea}`} name="product-additional-details" id="product-additional-details" defaultValue="" />
 
                     <input
                         className={styles.createsubmit}

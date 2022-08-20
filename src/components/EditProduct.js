@@ -5,6 +5,8 @@ import * as productService from '../services/productService'
 import { ProductContext } from "../contexts/productContext"
 import { AuthContext } from "../contexts/authContext"
 
+import styles from './EditProduct.module.css'
+
 const EditProduct = () => {
     const [currentProduct, setCurrentProduct] = useState({})
     const { editProductHandler } = useContext(ProductContext)
@@ -36,53 +38,59 @@ const EditProduct = () => {
     }
 
     return (
-        <div className="edit-container">
-            <form id="edit" onSubmit={onSubmit}>
-                <h1>Edit Product Listing</h1>
-                <label htmlFor="product-title">Product name:</label>
-                <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    placeholder="Enter Product Title"
-                    defaultValue={currentProduct.title}
-                />
-                <label htmlFor="product-size">Product Size:</label>
-                <select id="product-size" name="product-size">
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
-                <label htmlFor="product-price">Product Price:</label>
-                <input
-                    type="number"
-                    id="product-price"
-                    name="product-price"
-                    min={1}
-                    step={0.01}
-                    placeholder={4.99}
-                    defaultValue={currentProduct['product-price']}
-                />
-                <label htmlFor="product-image-url">Product Image Link:</label>
-                <input
-                    type="text"
-                    id="product-image-url"
-                    name="image-url"
-                    placeholder="https://imgur.com/myImage.jpg"
-                    defaultValue={currentProduct['image-url']}
-                />
-                <label htmlFor="product-additional-details">Additional Details:</label>
-                <textarea name="product-additional-details" id="product-additional-details" defaultValue={currentProduct['product-additional-details']} />
+        <>
+            <h1>Edit Product Listing</h1>
 
-                <input
-                    className="btn submit"
-                    type="submit"
-                    value="Save"
-                />
-            </form>
-        </div>
+            <div className={styles.editcontainer}>
+                <form className={styles.editform} id="edit" onSubmit={onSubmit}>
+                    <label className={styles.editlabel} htmlFor="product-title">Product name:</label>
+                    <input
+                        className={styles.editinput}
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Enter Product Title"
+                        defaultValue={currentProduct.title}
+                    />
+                    <label className={styles.editlabel} htmlFor="product-size">Product Size:</label>
+                    <select id="product-size" name="product-size" className={styles.editinput}>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    <label className={styles.editlabel} htmlFor="product-price">Product Price:</label>
+                    <input
+                        className={styles.editinput}
+                        type="number"
+                        id="product-price"
+                        name="product-price"
+                        min={1}
+                        step={0.01}
+                        placeholder={4.99}
+                        defaultValue={currentProduct['product-price']}
+                    />
+                    <label className={styles.editlabel} htmlFor="product-image-url">Product Image Link:</label>
+                    <input
+                        className={styles.editinput}
+                        type="text"
+                        id="product-image-url"
+                        name="image-url"
+                        placeholder="https://imgur.com/myImage.jpg"
+                        defaultValue={currentProduct['image-url']}
+                    />
+                    <label className={styles.editlabel} htmlFor="product-additional-details">Additional Details:</label>
+                    <textarea className={`${styles.editinput} ${styles.edittextarea}`} name="product-additional-details" id="product-additional-details" defaultValue={currentProduct['product-additional-details']} />
+
+                    <input
+                        className={styles.editsubmit}
+                        type="submit"
+                        value="Save"
+                    />
+                </form>
+            </div>
+        </>
     )
 }
 
