@@ -89,3 +89,8 @@
   .totalbutton:hover::before {
     transform: scaleX(1);
   }
+
+  .nocartitems {
+    font-size: xx-large;
+    font-weight: 700;
+  }

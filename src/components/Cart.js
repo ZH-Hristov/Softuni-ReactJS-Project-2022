@@ -29,7 +29,7 @@ const Cart = () => {
                             <button className={styles.totalbutton} onClick={clearCart}>Clear cart</button>
                         </div>
                     </>
-                    : <p>You have no products in your cart!</p>
+                    : <p className={styles.nocartitems}>You have no products in your cart!</p>
                 }
             </div>
         </>
