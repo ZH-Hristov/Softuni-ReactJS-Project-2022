@@ -42,24 +42,31 @@ const Product = () => {
         <>
             <h1>Product: {product.title}</h1>
 
-            <h4>Product Details:</h4>
             <img className={styles.bigimg} src={product['image-url']} alt={product.title} />
-            <ul>
+            <ul className={styles.productul}>
                 <li>Size: {product['product-size']}</li>
                 <li>Price: {product['product-price']}</li>
+                {product['product-additional-details'] &&
+                    <>
+                        <li>Additional Details:</li>
+                        <li><textarea readOnly value={product['product-additional-details']}></textarea></li>
+                    </>
+                }
             </ul>
-            {cartItems[productID] ? 
-                <button onClick={() => removeCartItem(productID)}>Remove from cart</button>
-                : 
-                <button onClick={() => addCartItem(product) }>Add to cart</button>
-            }
-            
+            <div className={styles.cartbuttoncontainer}>
+                {cartItems[productID] ?
+                    <button className={styles.button} onClick={() => removeCartItem(productID)}>Remove from cart</button>
+                    :
+                    <button className={styles.button} onClick={() => addCartItem(product)}>Add to cart</button>
+                }
+            </div>
+
             {user._id === product._ownerId
                 &&
-                <>
-                    <Link to={`/products/${productID}/edit`}>Edit listing</Link>
-                    <button onClick={onDelete}>Delete listing</button>
-                </>
+                <div className={styles.ownerbuttons}>
+                    <Link className={styles.button} to={`/products/${productID}/edit`}>Edit listing</Link>
+                    <button className={styles.button} onClick={onDelete}>Delete listing</button>
+                </div>
             }
 
         </>
