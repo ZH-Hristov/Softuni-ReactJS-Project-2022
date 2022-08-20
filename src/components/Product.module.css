@@ -58,7 +58,8 @@ textarea {
     font-weight: 700;
     font-size: larger;
     text-decoration: none;
-    background-color: transparent;
+    background-color: #23116c;
+    padding: 4px;
     text-shadow: 0 2px 0 black;
     border: none;
     border-radius: 4px;
