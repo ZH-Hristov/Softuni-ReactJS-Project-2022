@@ -34,6 +34,16 @@
     background-color:#2f1793;
 }
 
+.nav-bar-list::before {
+    content: "ThriftHeaven";
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 0 2px 0 black;
+    position: absolute;
+    left: 20px;
+    color: wheat;
+    font-size: xx-large;
+}
+
 li {
     padding: 8px;
     position: relative;
