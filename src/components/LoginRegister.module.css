@@ -1,0 +1,70 @@
+.container {
+    border-radius: 4px;
+    width: 40%;
+    margin: auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: #2f1793;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.form > label {
+    color: wheat;
+    font-weight: 700;
+    font-size: large;
+    margin: 10px;
+    text-shadow: 0 2px 0 black;
+}
+
+.form > input {
+    padding: 8px;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.form .button {
+    background-color: #23116c;
+    color: wheat;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: larger;
+    transition: 0.1s;
+    width: 50%;
+    text-shadow: 0 2px 0 black;
+}
+
+.button:hover {
+    background-color: wheat;
+    color: black;
+    text-shadow: none;
+}
+
+.haveaccount {
+    color: wheat;
+    font-weight: 700;
+    text-shadow: 0 2px 0 black;
+}
+
+.redirect {
+    text-decoration: none;
+    text-shadow: 0 1px 0 black;
+    color: black;
+    background-color: wheat;
+    border-radius: 4px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.redirect:hover {
+    text-decoration: underline;
+}
