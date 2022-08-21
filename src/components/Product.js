@@ -22,9 +22,13 @@ const Product = () => {
     useEffect(() => {
         productService.getOne(productID)
             .then(result => {
-                setProduct(result)
+                if (result.code === 404) {
+                    navigate('*')
+                } else {
+                    setProduct(result)
+                }
             })
-    }, [productID])
+    }, [productID, navigate])
 
     const onDelete = () => {
         const confirmation = window.confirm("Are you sure you wanna remove this listing?")
