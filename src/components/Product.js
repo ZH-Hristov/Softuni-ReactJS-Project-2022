@@ -53,13 +53,15 @@ const Product = () => {
                     </>
                 }
             </ul>
-            <div className={styles.cartbuttoncontainer}>
-                {cartItems[productID] ?
-                    <button className={styles.button} onClick={() => removeCartItem(productID)}>Remove from cart</button>
-                    :
-                    <button className={styles.button} onClick={() => addCartItem(product)}>Add to cart</button>
-                }
-            </div>
+            {user.accessToken &&
+                <div className={styles.cartbuttoncontainer}>
+                    {cartItems[productID] ?
+                        <button className={styles.button} onClick={() => removeCartItem(productID)}>Remove from cart</button>
+                        :
+                        <button className={styles.button} onClick={() => addCartItem(product)}>Add to cart</button>
+                    }
+                </div>
+            }
 
             {user._id === product._ownerId
                 &&
