@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project was created with the use of the SoftUni Practice Server in mind. You can get it [https://github.com/softuni-practice-server/softuni-practice-server](here). Run node server.js in a terminal to start the server.
+
 ## Available Scripts
 
 In the project directory, you can run:
